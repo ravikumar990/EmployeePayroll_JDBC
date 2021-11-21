@@ -3,6 +3,7 @@ package com.employeepayroll;
 import java.util.List;
 
 public class EmployeePayrollService {
+	// create object
 	EmployeeDBConnection employeePayrollDBService = new EmployeeDBConnection();
 
 	public enum IOService {
@@ -36,5 +37,4 @@ public class EmployeePayrollService {
 		return this.employeePayrollList.stream()
 				.filter(employeePayrollDataItem -> employeePayrollDataItem.name.equals(name)).findFirst().orElse(null);
 	}
-
 }

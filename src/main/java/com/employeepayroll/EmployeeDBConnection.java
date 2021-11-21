@@ -22,7 +22,7 @@ public class EmployeeDBConnection {
 
 	// connection method
 	private Connection getConnection() throws SQLException {
-		String jdbcURL = "jdbc:mysql://localhost:3306/employee_payroll_service123?useSSL=false";
+		String jdbcURL = "jdbc:mysql://localhost:3306/employee_payroll?useSSL=false";
 		String userName = "root";
 		String password = "ravi@123";
 		Connection connection;
@@ -32,7 +32,7 @@ public class EmployeeDBConnection {
 		return connection;
 	}
 
-	// get employee data
+	// get employee data from database
 	private List<EmployeePayrollData> getEmployeePayrollDataUsingDB(String sql) {
 		List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
 		try (Connection connection = this.getConnection()) {
@@ -51,7 +51,7 @@ public class EmployeeDBConnection {
 		return employeePayrollList;
 	}
 
-	// update salary using query
+	// update salary using update query
 	private int updateEmployeeDataUsingStatement(String name, double salary) {
 		String sql = String.format("UPDATE employee_payroll_service123  SET salary = %.2f WHERE name = '%s';", salary,
 				name);
